@@ -1,0 +1,25 @@
+.body{
+    background-color: #282828;
+}
+
+
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.input{
+    background-color: #515050;
+    color: white;
+    border: solid 2px;
+    border-color: #ffc700;
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    
+}
