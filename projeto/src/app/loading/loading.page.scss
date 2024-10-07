@@ -1,0 +1,35 @@
+ ion-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+  }
+  
+  .content-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    color: #FFc700;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .loading {
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 4px dotted #FFc700;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
