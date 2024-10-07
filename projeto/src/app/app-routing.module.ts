@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'tab4',
     loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
   },
+  {
+    path: 'barbearia1',
+    loadChildren: () => import('./barbearia1/barbearia1.module').then( m => m.Barbearia1PageModule)
+  },
   
   
 ];

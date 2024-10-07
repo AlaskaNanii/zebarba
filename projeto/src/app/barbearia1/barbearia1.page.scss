@@ -1,0 +1,28 @@
+ion-header {
+    --background: #333;
+    --color: #ffcc00;
+  }
+  
+.image-placeholder {
+    height: 150px;
+    background-color: grey;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+  
+.content-area {
+    h2 {
+      color: #ffcc00;
+    }
+    h3 {
+      color: #ffffff;
+    }
+    p {
+      color: #ffffff;
+    }
+}
+  
+ion-content {
+    --background: #222;
+    color: #ffcc00;
+}

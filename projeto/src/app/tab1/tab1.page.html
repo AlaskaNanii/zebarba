@@ -1,5 +1,48 @@
-<ion-content>
-    <h1>Bem vindo</h1>
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>ZéBarba</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="header">
+    <h2>Agende seu horário</h2>
+    <p>Qual cidade você está? <ion-icon name="information-circle-outline"></ion-icon></p>
+  </div>
+
+  <ion-item>
+    <ion-label position="floating">Selecione a cidade</ion-label>
+    <ion-select>
+      <ion-select-option value="cidade1">Cidade 1</ion-select-option>
+      <ion-select-option value="cidade2">Cidade 2</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+    <ion-button (click)="Barber1()" expand="full">Salão do Zé | Endereço | Contato</ion-button>
+   
+
   
+    <ion-button position="floating">Salão do galerão | Endereço | Contato </ion-button>
+
+  <ion-item>
+    <ion-label>Barber Shop</ion-label>
+    <ion-note slot="end">Endereço | Contato</ion-note>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Barbearia do Zé</ion-label>
+    <ion-note slot="end">Endereço | Contato</ion-note>
+  </ion-item>
+
+  <ion-button expand="full">
+    <ion-icon slot="start" name="calendar"></ion-icon>
+    Agendar
+  </ion-button>
 </ion-content>
 
