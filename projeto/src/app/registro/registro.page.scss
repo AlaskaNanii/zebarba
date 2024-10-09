@@ -1,20 +1,29 @@
 .signup-container {
-    display: flex;
+    display: absolute;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
     background-color: #1e1e1e;
     color: #ffffff;
+    padding-left: 40px;
 }
-  
+
 h1 {
+    display: flex;
+    justify-content: center;
     font-size: 2.5rem;
     margin-bottom: 2rem;
     font-family: cursive;
     color: #ffc700;
 }
-  
+
+h4 {
+    display: flex;
+    justify-content: center;
+    padding-right: 30px;
+}
+
 ion-item {
     background-color: #1e1e1e;
     width: 90%;
@@ -26,18 +35,23 @@ ion-item {
     border-color: #ffc700;
 }
 
-
- 
 .signup-button {
     width: 90%;
     margin-top: 1.5rem;
     --background: #ffc700;
     border-radius: 15px;
 }
-  
+
 .login-text {
     margin-top: 2rem;
     font-size: 0.9rem;
     text-align: center;
     color: #888888;
 }
+
+@media (max-width: 600px) {
+    .signup-container {
+      padding-bottom: 15em; 
+    }
+}
+
