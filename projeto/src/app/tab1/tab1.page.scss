@@ -29,4 +29,37 @@ ion-item {
 ion-button {
     --background: #ffcc00;
     --color: #222;
+    
+}
+
+
+ion-menu-button{
+    --color: #ffcc00;
+}
+
+.header{
+    margin-top: 50px;
+}
+
+ul{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .button-menu{
+        justify-content: center;
+        font-family: sans-serif;
+        width: 100%;
+        align-items: center;
+        --background: #ffcc00;
+        --border-radius: 10px;
+        --color: white;
+    }
+}
+
+ion-button{
+    --color: rgb(0, 0, 0);
+    font-weight: bold;
 }

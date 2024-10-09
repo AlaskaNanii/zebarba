@@ -12,7 +12,7 @@ export class LoadingPage implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/tabs/tab1']);
     }, 3000); // Aguardando 3 segundos antes de redirecionar para a tela de login
   }
 }
