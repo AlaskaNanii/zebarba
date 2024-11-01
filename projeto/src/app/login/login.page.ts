@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +7,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  constructor(private router: Router) {}
+  email: string = '';
+  password: string = '';
 
+  constructor(private authService: AuthService) {}
+
+  
   login() {
-    this.router.navigate(['/tabs']);
+    this.authService.login(this.email, this.password);
+  }
+
+  
+  googleLogin() {
+    this.authService.googleLogin();
   }
 }

@@ -1,5 +1,3 @@
-
-
 <ion-content>
   <div class="signup-container">
     <h1>ZéBarba</h1>
@@ -7,30 +5,43 @@
     <h4>Cadastro</h4>
     
     <ion-item color="dark">
-      <ion-input type="text" placeholder="Nome"></ion-input>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="nome"></ion-input>
     </ion-item>
+    <p *ngIf="nomeError" class="error-message">{{ nomeError }}</p>
 
     <ion-item color="dark">
-    <ion-input type="tel" placeholder="Telefone"></ion-input>
+      <ion-label position="floating">Telefone</ion-label>
+      <ion-input type="tel" [(ngModel)]="telefone"></ion-input>
     </ion-item>
+    <p *ngIf="telefoneError" class="error-message">{{ telefoneError }}</p>
 
     <ion-item color="dark">
-      <ion-input type="email" placeholder="Email"></ion-input>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
     </ion-item>
+    <p *ngIf="emailError" class="error-message">{{ emailError }}</p>
 
     <ion-item color="dark">
-      <ion-input type="text" placeholder="Endereço"></ion-input>
+      <ion-label position="floating">Endereço</ion-label>
+      <ion-input type="text" [(ngModel)]="endereco"></ion-input>
     </ion-item>
+    <p *ngIf="enderecoError" class="error-message">{{ enderecoError }}</p>
 
     <ion-item color="dark">
-      <ion-input type="password" placeholder="Senha"></ion-input>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
     </ion-item>
+    <p *ngIf="passwordError" class="error-message">{{ passwordError }}</p>
 
     <ion-item color="dark">
-      <ion-input type="password" placeholder="Confirmar Senha"></ion-input>
+      <ion-label position="floating">Confirmar Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="confirmPassword"></ion-input>
     </ion-item>
+    <p *ngIf="confirmPasswordError" class="error-message">{{ confirmPasswordError }}</p>
 
-    <ion-button class="signup-button">Cadastrar</ion-button>
+    <ion-button class="signup-button" (click)="cadastrar()">Cadastrar</ion-button>
+    
     <p class="login-text">Já tem uma conta? <a href="/login">Clique aqui para fazer login</a></p>
-    </div>
+  </div>
 </ion-content>
