@@ -12,7 +12,7 @@
 
     <ion-item color="dark">
       <ion-label position="floating">Telefone</ion-label>
-      <ion-input type="tel" [(ngModel)]="telefone"></ion-input>
+      <ion-input type="tel" [(ngModel)]="telefone" (ionInput)="formatarTelefone()" maxlenght="14"></ion-input>
     </ion-item>
     <p *ngIf="telefoneError" class="error-message">{{ telefoneError }}</p>
 
