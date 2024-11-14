@@ -9,14 +9,16 @@
     <ion-row>
       <ion-col size="12" size-md="6" *ngFor="let person of people">
         <ion-card>
-          <ion-card-header>
-            <ion-card-title>{{ person.name }}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-img [src]="person.photo" alt="Foto de {{ person.name }}"></ion-img>
-            <p>Idade: {{ person.age }}</p>
-            <p>Cargo: {{ person.role }}</p>
-            <p>Email: {{ person.email }}</p>
+          <ion-card-content class="card-content">
+            <ion-card-title class="person-name">{{ person.name }}</ion-card-title>
+            <div class="content">
+              <ion-img [src]="person.photo" alt="Foto de {{ person.name }}" class="person-photo"></ion-img>
+              <div class="person-info">
+                <p>Idade: {{ person.age }}</p>
+                <p>Turma: {{ person.turma }}</p>
+                <p>Matrícula: {{ person.matricula }}</p>
+              </div>
+            </div>
           </ion-card-content>
         </ion-card>
       </ion-col>
