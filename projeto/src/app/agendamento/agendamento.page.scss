@@ -3,3 +3,84 @@
 
     justify-content: center;
 }
+
+.mensagem {
+    text-align: center;
+    margin-top: 15px;
+    color: red; /* Você pode mudar essa cor conforme necessário */
+}
+
+.horarios{
+    color: #ffffff;
+}
+
+.agendado{
+    color: white;
+}
+
+.carrossel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+  
+.carrossel-item {
+    flex: 0 0 auto;
+    width: 100px;
+    scroll-snap-align: start;
+    margin: 10px;
+    text-align: center;
+}
+  
+.carrossel-item ion-button {
+    width: 100%;
+   
+}
+  
+.hours{
+   --background: #ffcc00;
+   color: black;
+}
+.confirmar {
+    margin-top: 20px;
+    width: 100%;
+}
+  
+
+.serviços{
+    --background: #ffcc00;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 17px;
+}
+.select{
+   width: 100%;
+   height: 50px;
+   border-radius: 20px;
+   background: #ffcc00;
+
+   .option{
+    color: black;
+    background-color: #ffcc00;
+   }
+}
+
+.arrow{
+    color: #ffcc00;
+}
+
+.confirmar{
+    display: flex;
+    --background: #ffcc00;
+    color: black;
+    align-items: center;
+}
+ion-title{
+    color: #ffcc00;
+
+}
+
+.option{
+    color: #ffcc00;
+}

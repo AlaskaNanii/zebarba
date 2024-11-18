@@ -1,18 +1,60 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>agendamento</ion-title>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/barbearia1">
+        <ion-icon slot="icon-only" name="arrow-back" class="arrow"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Página de Agendamento</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">agendamento</ion-title>
-    </ion-toolbar>
-  </ion-header>
-<div class="calendar" >
-  <ion-datetime color="dark"></ion-datetime>
-</div>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label posioition="floating"></ion-label>
+      <ion-datetime [(ngModel)]="data"></ion-datetime>
+    </ion-item><br>
 
+    <div class="horarios">
+      <label position="floating">Hora</label>
+      <div class="carrossel">
+        <div class="carrosel-item" *ngFor="let hora of horasDisponiveis">
+          <ion-button (click)="selecionarHora(hora)" class="hours">{{ hora }}</ion-button>
 
+        </div>
+
+      </div>
+    </div>
+   
+
+  
+   
+    <div class="serviços">
+      <label position="floating">Serviços</label>
+        <select [(ngModel)]="servico" class="select">
+          <option value="Corte simples" class="option"> Corte simples</option>
+          <option value="Corte disfarçado" class="option">Corte disfarçado</option>
+          <option value="Maquina e tesoura" class="option"> Maquina e tesoura</option>
+        </select>
+      </div>
+  
+
+    <ion-button  class="confirmar" (click)="addAgendamento()">Confirmar Agendamento</ion-button>
+  </ion-list>
+
+  <div *ngIf="mensagem" class="mensagem">
+    {{ mensagem }}
+  </div>
+
+  <ion-list >
+    <ion-item *ngFor="let agendamento of agendamentos; let i = index">
+      <ion-label class="agendado">
+        Data: {{ agendamento.data }}<br>
+        Horario: {{ agendamento.hora }}<br>
+        Serviço: {{ agendamento.servico }}
+      </ion-label>
+      <ion-button color="danger" (click)="deleteAgendamento(i)">Excluir</ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>
