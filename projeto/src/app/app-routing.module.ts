@@ -29,6 +29,18 @@ const routes: Routes = [
     path: 'agendamento',
     loadChildren: () => import('./agendamento/agendamento.module').then( m => m.AgendamentoPageModule)
   },
+  {
+    path: 'barbearia2',
+    loadChildren: () => import('./barbearia2/barbearia2.module').then( m => m.Barbearia2PageModule)
+  },
+  {
+    path: 'barbearia3',
+    loadChildren: () => import('./barbearia3/barbearia3.module').then( m => m.Barbearia3PageModule)
+  },
+  {
+    path: 'barbearia4',
+    loadChildren: () => import('./barbearia4/barbearia4.module').then( m => m.Barbearia4PageModule)
+  },
 
 
   
