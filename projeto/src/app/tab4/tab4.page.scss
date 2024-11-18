@@ -1,0 +1,61 @@
+ion-title {
+    color: #FFD700;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  ion-toolbar {
+    --background: #333;
+    --ion-color-base: #333;
+  }
+  
+  ion-content {
+    --background: #f4f4f470;
+  }
+  
+  ion-card {
+    margin: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  
+  .card-content {
+    padding: 20px;
+    text-align: center;
+    color: #FFFFFF; /* Define a cor padrão do texto como branco */
+  }
+  
+  .person-name {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #FFD700; /* Cor do texto em amarelo */
+  }
+  
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .person-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .person-info {
+    text-align: left;
+    flex: 1;
+    color: #FFFFFF; /* Define a cor do texto como branco */
+  }
+  
+  .person-info p {
+    margin: 5px 0;
+  }
+  

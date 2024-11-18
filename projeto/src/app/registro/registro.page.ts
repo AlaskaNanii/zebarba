@@ -24,6 +24,13 @@ export class RegistroPage {
 
   constructor(private authService: AuthService) {}
 
+  formatarTelefone() { 
+    let valor = this.telefone.replace(/\D/g, ''); 
+    valor = valor.replace(/^(\d{2})(\d)/g, '($1) $2'); 
+    valor = valor.replace(/(\d)(\d{4})$/, '$1-$2'); 
+    this.telefone = valor.substring(0, 14); 
+  }
+
   async cadastrar() {
     // Limpa as mensagens de erro
     this.nomeError = '';
@@ -40,6 +47,17 @@ export class RegistroPage {
       this.nomeError = 'Nome é obrigatório';
       isValid = false;
     }
+    if (!this.nome) { 
+      this.nomeError = 'Nome é obrigatório'; 
+      isValid = false; 
+    } else if (this.nome.length < 15) { 
+      this.nomeError = 'Nome deve ter no mínimo 15 caracteres'; 
+      isValid = false; 
+    } else if (this.nome.length > 50) { 
+      this.nomeError = 'Nome deve ter no máximo 50 caracteres'; 
+      isValid = false; 
+    }
+
     if (!this.telefone) {
       this.telefoneError = 'Telefone é obrigatório';
       isValid = false;
@@ -54,6 +72,9 @@ export class RegistroPage {
     }
     if (!this.password) {
       this.passwordError = 'Senha é obrigatória';
+      isValid = false;
+    } else if (!/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6}$/.test(this.password)) { 
+      this.passwordError = 'Senha deve conter 6 caracteres, incluindo letras e números'; 
       isValid = false;
     }
     if (this.password !== this.confirmPassword) {
