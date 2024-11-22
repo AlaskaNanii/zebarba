@@ -44,6 +44,31 @@ export class AuthService {
     }
   }
 
+  async registerBarbeiro(email: string, password: string, additionalData: { nome: string; telefone: string; endereco: string; licenca: string }) {
+    try {
+      const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
+      const user = result.user?.uid;
+  
+      if (user) {
+        await this.firestore.collection('Barbeiros').doc(user).set({
+          email,
+          nome: additionalData.nome,
+          telefone: additionalData.telefone,
+          endereco: additionalData.endereco,
+          licenca: additionalData.licenca,
+          criadoEm: new Date(),
+        });
+  
+        this.router.navigate(['/login']);
+        console.log('Barbeiro cadastrado com sucesso no Firestore!');
+      }
+    } catch (error) {
+      console.error('Erro ao cadastrar barbeiro:', error);
+      throw error;
+    }
+  }
+  
+
   async login(email: string, password: string) {
     try {
       const result = await this.afAuth.signInWithEmailAndPassword(email, password);
@@ -80,5 +105,16 @@ export class AuthService {
       console.error('Erro ao fazer logout:', error);
     }
   }
+ // Novo método para redefinir senha
+ async resetPassword(email: string) {
+  try {
+    await this.afAuth.sendPasswordResetEmail(email);
+    console.log('Email de redefinição de senha enviado com sucesso!');
+    alert('Verifique seu email para redefinir a senha.');
+  } catch (error) {
+    console.error('Erro ao enviar email de redefinição de senha:', error);
+    alert('Erro ao enviar email de redefinição de senha. Verifique o email e tente novamente.');
+  }
+}
 }
 

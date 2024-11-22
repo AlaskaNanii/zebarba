@@ -21,7 +21,8 @@ const routes: Routes = [
   {
     path: 'loading',
     loadChildren: () => import('./loading/loading.module').then( m => m.LoadingPageModule)
-  },  {
+  },
+  {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   },
@@ -29,6 +30,27 @@ const routes: Routes = [
     path: 'agendamento',
     loadChildren: () => import('./agendamento/agendamento.module').then( m => m.AgendamentoPageModule)
   },
+  {
+    path: 'registrobarbeiro',
+    loadChildren: () => import('./registrobarbeiro/registrobarbeiro.module').then( m => m.RegistrobarbeiroPageModule)
+  },
+  {
+    path: 'forgot-password',
+    loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+  },
+  {
+    path: 'barbearia2',
+    loadChildren: () => import('./barbearia2/barbearia2.module').then( m => m.Barbearia2PageModule)
+  },
+  {
+    path: 'barbearia3',
+    loadChildren: () => import('./barbearia3/barbearia3.module').then( m => m.Barbearia3PageModule)
+  },
+  {
+    path: 'barbearia4',
+    loadChildren: () => import('./barbearia4/barbearia4.module').then( m => m.Barbearia4PageModule)
+  },
+
 
 
   
