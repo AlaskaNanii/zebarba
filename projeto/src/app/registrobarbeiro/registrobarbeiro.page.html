@@ -1,9 +1,9 @@
-<ion-content>
+<ion-content> 
   <div class="signup-container">
     <h1>ZéBarba</h1>
 
-    <h4>Cadastro</h4>
-    
+    <h4>Cadastro de Barbeiro</h4>
+
     <ion-item color="dark">
       <ion-label position="floating">Nome</ion-label>
       <ion-input type="text" [(ngModel)]="nome"></ion-input>
@@ -12,7 +12,7 @@
 
     <ion-item color="dark">
       <ion-label position="floating">Telefone</ion-label>
-      <ion-input type="tel" [(ngModel)]="telefone" (ionInput)="formatarTelefone()" maxlenght="14"></ion-input>
+      <ion-input type="tel" [(ngModel)]="telefone" (ionInput)="formatarTelefone()" maxlength="14"></ion-input>
     </ion-item>
     <p *ngIf="telefoneError" class="error-message">{{ telefoneError }}</p>
 
@@ -28,6 +28,13 @@
     </ion-item>
     <p *ngIf="enderecoError" class="error-message">{{ enderecoError }}</p>
 
+    <!-- Campo adicional: número de licença -->
+    <ion-item color="dark">
+      <ion-label position="floating">Número da Licença</ion-label>
+      <ion-input type="text" [(ngModel)]="licenca"></ion-input>
+    </ion-item>
+    <p *ngIf="licencaError" class="error-message">{{ licencaError }}</p>
+
     <ion-item color="dark">
       <ion-label position="floating">Senha</ion-label>
       <ion-input type="password" [(ngModel)]="password"></ion-input>
@@ -42,7 +49,7 @@
 
     <ion-button class="signup-button" (click)="cadastrar()">Cadastrar</ion-button>
     
-    <p class="login-text">Quer se cadastrar como barbeiro? <a href="/registrobarbeiro">Clique aqui</a></p>
+    <p class="login-text">Quer se cadastrar como cliente? <a href="/registro">Clique aqui</a></p>
     <p class="login-text">Já tem uma conta? <a href="/login">Clique aqui para fazer login</a></p>
   </div>
 </ion-content>
