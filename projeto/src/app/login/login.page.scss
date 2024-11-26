@@ -23,6 +23,11 @@ ion-item {
     border: solid;
     border-color:#ffc700;
 }
+
+ion-item:focus-within {
+    border-color: #fff;
+  }
+  
   
 .login-button {
     width: 90%;
