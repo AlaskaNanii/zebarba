@@ -20,7 +20,7 @@
       </ion-buttons>
     </ion-toolbar>
   </div>
-
+<div class="content">
   <div *ngIf="barbearia; else loading">
     <div class="content-area">
       <ng-container *ngIf="!isEditing; else editMode">
@@ -42,6 +42,11 @@
         <ion-button *ngIf="isBarbeiro" (click)="enableEditMode()" class="editar">
           <ion-icon slot="start" name="create"></ion-icon>
           Editar Informações
+        </ion-button>
+
+         <!-- Botão de agendamento visível apenas para usuários normais -->
+        <ion-button *ngIf="isUsuarioNormal" color="primary" expand="block">
+          Agendar Serviço
         </ion-button>
       </ng-container>
   
@@ -86,4 +91,3 @@
     <div class="loading">Carregando informações...</div>
   </ng-template>
   
-</ion-content>

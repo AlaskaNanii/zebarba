@@ -37,7 +37,7 @@
 
   <!-- Renderiza barbearias dinamicamente -->
   <div class="container">
-    <ion-card *ngFor="let barbearia of barbearias" (click)="goToBarbearia(barbearia.id)" class="barber" href="/barbearia1">
+    <ion-card *ngFor="let barbearia of barbearias" (click)="goToBarbearia(barbearia.id)" class="barber" >
       <ion-card-header>
         <ion-card-title>{{ barbearia.nome }}</ion-card-title>
       </ion-card-header>

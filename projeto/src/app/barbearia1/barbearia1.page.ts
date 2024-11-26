@@ -12,6 +12,7 @@ export class Barbearia1Page implements OnInit {
   barbearia: any = null;
   isBarbeiro: boolean = false; // Determina se o usuário é barbeiro
   isEditing: boolean = false; // Alterna entre modo de edição e visualização
+  isUsuarioNormal: boolean = false; // Controle do botão de agendamento
 
   constructor(
     private route: ActivatedRoute,
@@ -22,6 +23,7 @@ export class Barbearia1Page implements OnInit {
   ngOnInit() {
     this.checkUserType();
     this.loadBarbearia();
+    this.checkUserType2();
   }
 
   async checkUserType() {
@@ -30,13 +32,13 @@ export class Barbearia1Page implements OnInit {
   }
 
   async loadBarbearia() {
-    const barbeariaId = this.route.snapshot.paramMap.get('id');
+    const barbeariaId = this.route.snapshot.paramMap.get('id'); // Obtém o ID da URL
     if (barbeariaId) {
       try {
         const doc = await this.firestore.collection('Barbearias').doc(barbeariaId).get().toPromise();
         if (doc && doc.exists) {
           this.barbearia = { id: barbeariaId, ...(doc.data() as Record<string, any>) };
-
+          console.log(this.barbearia); // Exibe os dados carregados
         } else {
           console.error('Barbearia não encontrada!');
         }
@@ -45,6 +47,13 @@ export class Barbearia1Page implements OnInit {
       }
     }
   }
+
+  async checkUserType2() {
+    const userType = await this.authService.getUserType();
+    this.isUsuarioNormal = userType === 'usuário'; // Verifica se é um usuário normal
+  }
+  
+  
 
   // Alterna para o modo de edição
   enableEditMode() {

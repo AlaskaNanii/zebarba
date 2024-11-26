@@ -21,7 +21,7 @@ const routes: Routes = [
   },
  
   {
-    path: 'barbearia1',
+    path: 'barbearia1/:id', // Rota que aceita um parâmetro "id"
     loadChildren: () => import('./barbearia1/barbearia1.module').then(m => m.Barbearia1PageModule),
   },
   

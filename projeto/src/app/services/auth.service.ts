@@ -85,20 +85,24 @@ export class AuthService {
       }
   
       const userId = user.uid;
+      const barbeariaId = this.firestore.createId(); // Gera um ID único para a barbearia
   
       // Salva os dados da barbearia no Firestore
-      await this.firestore.collection('Barbearias').doc(userId).set({
+      await this.firestore.collection('Barbearias').doc(barbeariaId).set({
         ...barbearia,
         barbeiroId: userId,
         criadoEm: new Date(),
       });
   
       console.log('Barbearia cadastrada com sucesso no Firestore!');
+      return barbeariaId; // Retorna o ID gerado
     } catch (error) {
       console.error('Erro ao cadastrar barbearia no Firestore:', error);
       throw error;
     }
   }
+  
+  
   
   async getUserType(): Promise<string | null> {
     const user = await this.afAuth.currentUser;
@@ -108,6 +112,25 @@ export class AuthService {
     }
     return null; // Não autenticado
   }
+
+  async getUserType2(): Promise<string | null> {
+    try {
+      const user = await this.afAuth.currentUser;
+      if (user) {
+        const doc = await this.firestore.collection('Usuários').doc(user.uid).get().toPromise();
+        if (doc && doc.exists) {
+          const data = doc.data() as { tipo: string }; // Declara o tipo explicitamente
+          return data.tipo || null; // Retorna o tipo (usuário ou barbeiro)
+        }
+      }
+      return null;
+    } catch (error) {
+      console.error('Erro ao obter tipo de usuário:', error);
+      return null;
+    }
+  }
+  
+  
   
   
 

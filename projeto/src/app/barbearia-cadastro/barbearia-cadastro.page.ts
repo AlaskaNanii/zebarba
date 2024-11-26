@@ -22,12 +22,15 @@ export class BarbeariaCadastroPage implements OnInit {
 
   async onSubmit() {
     try {
-      await this.authService.registerBarbearia(this.barbearia);
+      const barbeariaId = await this.authService.registerBarbearia(this.barbearia);
       alert('Barbearia cadastrada com sucesso!');
-      this.router.navigate(['/tabs/tab1']); // Redireciona para a página inicial ou outra de sua escolha
+      
+      // Redireciona para a página de detalhes da barbearia
+      this.router.navigate(['/barbearia1', barbeariaId]);
     } catch (error) {
       console.error('Erro ao cadastrar barbearia:', error);
       alert('Erro ao cadastrar a barbearia. Tente novamente.');
     }
   }
-}
+}  
+
