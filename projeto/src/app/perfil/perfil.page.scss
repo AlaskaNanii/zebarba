@@ -1,0 +1,19 @@
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffcc00;
+    border: solid;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 150px;
+        ion-button{
+            width: 160px;
+        }
+        ion-card{
+            border-color:  #ffcc00;
+            color: white;
+            font-size: 15px;
+        }
+}
