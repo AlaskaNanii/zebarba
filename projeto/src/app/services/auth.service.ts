@@ -113,22 +113,7 @@ export class AuthService {
     return null; // Não autenticado
   }
 
-  async getUserType2(): Promise<string | null> {
-    try {
-      const user = await this.afAuth.currentUser;
-      if (user) {
-        const doc = await this.firestore.collection('Usuários').doc(user.uid).get().toPromise();
-        if (doc && doc.exists) {
-          const data = doc.data() as { tipo: string }; // Declara o tipo explicitamente
-          return data.tipo || null; // Retorna o tipo (usuário ou barbeiro)
-        }
-      }
-      return null;
-    } catch (error) {
-      console.error('Erro ao obter tipo de usuário:', error);
-      return null;
-    }
-  }
+  
   
   
   

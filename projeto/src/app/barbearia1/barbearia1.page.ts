@@ -32,6 +32,8 @@ export class Barbearia1Page implements OnInit {
   }
 
   async loadBarbearia() {
+    const userType = await this.authService.getUserType();
+    this.isUsuarioNormal = userType === 'usuário'; // Verifica se é um usuário normal
     const barbeariaId = this.route.snapshot.paramMap.get('id'); // Obtém o ID da URL
     if (barbeariaId) {
       try {
