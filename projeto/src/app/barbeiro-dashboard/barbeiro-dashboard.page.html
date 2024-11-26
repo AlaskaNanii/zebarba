@@ -1,0 +1,63 @@
+<ion-content>
+  <div *ngIf="userData; else loading" class="profile-container">
+    <h1>ZéBarba</h1>
+    <h4>Meu Perfil</h4>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ isEditing ? 'Editar Perfil' : userData?.nome }}</ion-card-title>
+        <ion-card-subtitle>{{ userData?.email }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="stacked">Nome</ion-label>
+          <ion-input
+            [readonly]="!isEditing"
+            [(ngModel)]="editedData.nome"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Telefone</ion-label>
+          <ion-input
+            [readonly]="!isEditing"
+            [(ngModel)]="editedData.telefone"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Endereço</ion-label>
+          <ion-input
+            [readonly]="!isEditing"
+            [(ngModel)]="editedData.endereco"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="userData?.licenca">
+          <ion-label position="stacked">Número da Licença</ion-label>
+          <ion-input
+            [readonly]="!isEditing"
+            [(ngModel)]="editedData.licenca"
+          ></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <div *ngIf="isEditing; else defaultButtons">
+      <ion-button expand="full" color="primary" (click)="saveChanges()">Salvar</ion-button>
+      <ion-button expand="full" color="medium" (click)="cancelEdit()">Cancelar</ion-button>
+    </div>
+
+    <ng-template #defaultButtons>
+      <ion-button expand="full" color="secondary" (click)="enableEditing()">Editar</ion-button>
+      <ion-button expand="full" color="danger" (click)="logout()">Sair</ion-button>
+    </ng-template>
+  </div>
+
+  <ng-template #loading>
+    <div class="loading-container">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Carregando...</p>
+    </div>
+  </ng-template>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-content>
+  <div class="profile-container" *ngIf="!isLoading; else loading">
+    <h1>{{ userData?.nome || 'Nome não disponível' }}</h1>
+    <h4>Meu Perfil</h4>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ userData?.nome }}</ion-card-title>
+        <ion-card-subtitle>{{ userData?.email }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Telefone:</strong> {{ userData?.telefone }}</p>
+        <p><strong>Endereço:</strong> {{ userData?.endereco }}</p>
+        <p *ngIf="userData?.licenca"><strong>Número da Licença:</strong> {{ userData?.licenca }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button expand="full" color="danger" (click)="logout()">Sair</ion-button>
+  </div>
+
+  <!-- Exibe a tela de carregamento enquanto os dados não são carregados -->
+  <ng-template #loading>
+    <div class="loading-container">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Carregando...</p>
+    </div>
+  </ng-template>
+</ion-content>

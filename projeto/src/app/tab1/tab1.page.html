@@ -1,55 +1,51 @@
-
 <ion-content class="ion-padding">
   <ion-menu side="start" contentId="main-content">
     <ion-header>
-       
       <ion-toolbar>
         <ion-title>Menu</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ul>  
-      <ion-button  class="button-menu"><li>Agendar</li></ion-button>
+    <ul>
+      <ion-button class="button-menu"><li>Agendar</li></ion-button>
       <ion-button class="button-menu"><li>Pesquisar</li></ion-button>
       <ion-button routerLink="/login" class="button-menu"><li>Sair</li></ion-button>
-    
     </ul>
   </ion-menu>
-  
+
   <div class="ion-page" id="main-content">
-   
-      <ion-toolbar>
-        <ion-title>ZéBarba</ion-title>
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-      </ion-toolbar>
-    
+    <ion-toolbar>
+      <ion-title>ZéBarba</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
   </div>
 
-   
   <div class="header">
     <h2>Escolha a sua barbearia e faça seu agendamento</h2>
     
   </div>
 
 
- <div class="container">
-    <ion-button class="barber" (click)="Barber1()">Salão do Zé</ion-button>
-   
+  <ion-item>
+    <ion-label position="floating">Selecione a cidade</ion-label>
+    <ion-select>
+      <ion-select-option value="cidade1">Cidade 1</ion-select-option>
+      <ion-select-option value="cidade2">Cidade 2</ion-select-option>
+    </ion-select>
+  </ion-item>
 
-  
-    <ion-button class="barber" (click)="Barber2()">Salão do galerão </ion-button>
-
-  
-    <ion-button class="barber" (click)="Barber3()"> Barbearia stylo </ion-button>
-  
-    <ion-button class="barber" (click)="Barber4()"> Barbearia botafogo </ion-button>
-  
-  
- </div>
-    
-
-  
+  <!-- Renderiza barbearias dinamicamente -->
+  <div class="container">
+    <ion-card *ngFor="let barbearia of barbearias" (click)="goToBarbearia(barbearia.id)" class="barber" href="/barbearia1">
+      <ion-card-header>
+        <ion-card-title>{{ barbearia.nome }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ barbearia.descricao }}</p>
+        <p><strong>Endereço:</strong> {{ barbearia.endereco }}</p>
+        <p><strong>Contato:</strong> {{ barbearia.contato }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
-
-

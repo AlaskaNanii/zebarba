@@ -6,7 +6,7 @@
     
     <ion-item color="dark">
       <ion-label position="floating">Nome</ion-label>
-      <ion-input type="text" [(ngModel)]="nome"></ion-input>
+      <ion-input type="text" [(ngModel)]="nome" aria-label="Nome completo"></ion-input>
     </ion-item>
     <p *ngIf="nomeError" class="error-message">{{ nomeError }}</p>
 

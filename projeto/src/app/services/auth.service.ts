@@ -31,12 +31,14 @@ export class AuthService {
           nome: additionalData.nome,
           telefone: additionalData.telefone,
           endereco: additionalData.endereco,
+          tipo: 'usuário', // Define o tipo como cliente
           criadoEm: new Date(),
         });
         
         // Redireciona para a página inicial automaticamente após o registro
         this.router.navigate(['/login']);
         console.log('Usuário cadastrado e dados salvos no Firestore!');
+        alert('Cadastro realizado com sucesso');
       }
     } catch (error) {
       console.error('Erro ao cadastrar usuário:', error);
@@ -44,18 +46,24 @@ export class AuthService {
     }
   }
 
-  async registerBarbeiro(email: string, password: string, additionalData: { nome: string; telefone: string; endereco: string; licenca: string }) {
+  async registerBarbeiro(
+    email: string,
+    password: string,
+    additionalData: { nome: string; telefone: string; endereco: string; licenca: string }
+  ) {
     try {
       const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
       const user = result.user?.uid;
   
       if (user) {
+        // Salva o barbeiro no Firestore, incluindo o tipo de usuário
         await this.firestore.collection('Barbeiros').doc(user).set({
           email,
           nome: additionalData.nome,
           telefone: additionalData.telefone,
           endereco: additionalData.endereco,
           licenca: additionalData.licenca,
+          tipo: 'barbeiro', // Define o tipo como barbeiro
           criadoEm: new Date(),
         });
   
@@ -67,6 +75,40 @@ export class AuthService {
       throw error;
     }
   }
+  
+
+  async registerBarbearia(barbearia: { nome: string; descricao: string; servicos: string; endereco: string; contato: string }) {
+    try {
+      const user = await this.afAuth.currentUser; // Obtém o usuário logado (deve ser um barbeiro)
+      if (!user) {
+        throw new Error('Usuário não autenticado');
+      }
+  
+      const userId = user.uid;
+  
+      // Salva os dados da barbearia no Firestore
+      await this.firestore.collection('Barbearias').doc(userId).set({
+        ...barbearia,
+        barbeiroId: userId,
+        criadoEm: new Date(),
+      });
+  
+      console.log('Barbearia cadastrada com sucesso no Firestore!');
+    } catch (error) {
+      console.error('Erro ao cadastrar barbearia no Firestore:', error);
+      throw error;
+    }
+  }
+  
+  async getUserType(): Promise<string | null> {
+    const user = await this.afAuth.currentUser;
+    if (user) {
+      const doc = await this.firestore.collection('Barbeiros').doc(user.uid).get().toPromise();
+      return doc?.exists ? 'barbeiro' : 'usuário'; // Verifica se está na coleção de barbeiros
+    }
+    return null; // Não autenticado
+  }
+  
   
 
   async login(email: string, password: string) {

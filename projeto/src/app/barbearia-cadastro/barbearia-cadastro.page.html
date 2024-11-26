@@ -1,0 +1,70 @@
+<ion-content class="ion-padding">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Cadastro de Barbearia</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form (ngSubmit)="onSubmit()" #barbeariaForm="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Nome da Barbearia</ion-label>
+        <ion-input
+          type="text"
+          required
+          name="nome"
+          [(ngModel)]="barbearia.nome"
+          placeholder="Digite o nome da barbearia"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Descrição</ion-label>
+        <ion-textarea
+          required
+          name="descricao"
+          [(ngModel)]="barbearia.descricao"
+          placeholder="Ex.: Especialista em cortes modernos, pintura, etc."
+        ></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Serviços Oferecidos</ion-label>
+        <ion-input
+          type="text"
+          required
+          name="servicos"
+          [(ngModel)]="barbearia.servicos"
+          placeholder="Ex.: Corte simples, tesoura, descoloração"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Endereço</ion-label>
+        <ion-input
+          type="text"
+          required
+          name="endereco"
+          [(ngModel)]="barbearia.endereco"
+          placeholder="Ex.: Rua dos Limadores, 865"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contato</ion-label>
+        <ion-input
+          type="tel"
+          required
+          name="contato"
+          [(ngModel)]="barbearia.contato"
+          placeholder="Ex.: (00) 99999-9999"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" type="submit" [disabled]="!barbeariaForm.form.valid">
+      <ion-icon slot="start" name="save"></ion-icon>
+      Cadastrar Barbearia
+    </ion-button>
+  </form>
+</ion-content>
