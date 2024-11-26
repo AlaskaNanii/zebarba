@@ -76,15 +76,15 @@ ul{
     font-size: 15px;
     border-radius: 10px;
     height: 70px;
-    }
+}
 
-    .container {
+.container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
-      }
+}
       
-      .barber {
+.barber {
         --color: rgb(0, 0, 0);
         font-weight: bold;
         font-size: 15px;
@@ -93,5 +93,14 @@ ul{
         padding: 10px;
         cursor: pointer;
         background: #ffcc00;
-      }
+}
+
+.add{
+    display: flex;
+    justify-content: flex-end;
+   
+   
+  
+    
+}
       
