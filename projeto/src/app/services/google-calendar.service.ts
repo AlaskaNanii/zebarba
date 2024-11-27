@@ -4,6 +4,10 @@ import { loadGapiInsideDOM } from 'gapi-script';
 @Injectable({
   providedIn: 'root',
 })
+
+@Injectable({
+  providedIn: 'root',
+})
 export class GoogleCalendarService {
   private gapi: any;
   private CLIENT_ID = '45331705306-tmf9e8v7losga7j79r18gmdta8mkjarb.apps.googleusercontent.com';
@@ -43,3 +47,4 @@ export class GoogleCalendarService {
     return response.result;
   }
 }
+
