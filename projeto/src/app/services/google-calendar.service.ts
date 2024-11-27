@@ -4,10 +4,6 @@ import { loadGapiInsideDOM } from 'gapi-script';
 @Injectable({
   providedIn: 'root',
 })
-
-@Injectable({
-  providedIn: 'root',
-})
 export class GoogleCalendarService {
   private gapi: any;
   private CLIENT_ID = '45331705306-tmf9e8v7losga7j79r18gmdta8mkjarb.apps.googleusercontent.com';
@@ -40,11 +36,18 @@ export class GoogleCalendarService {
 
   async createEvent(event: any) {
     await this.signIn();
-    const response = await this.gapi.client.calendar.events.insert({
-      calendarId: 'primary',
-      resource: event,
-    });
-    return response.result;
+    try {
+      const response = await this.gapi.client.calendar.events.insert({
+        calendarId: 'primary',
+        resource: event,
+      });
+      console.log('Event created:', response);
+      return response.result;
+    } catch (error) {
+      console.error('Error creating event:', error);
+      throw error;
+    }
   }
 }
+
 

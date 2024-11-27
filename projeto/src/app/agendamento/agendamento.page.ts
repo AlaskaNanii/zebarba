@@ -62,17 +62,21 @@ export class AgendamentoPage implements OnInit {
 
     try {
       // Criar evento no Google Calendar
+      const eventStartTime = `${this.data}T${this.hora}:00`;
+      const eventEndTime = `${this.data}T${this.addMinutes(this.hora, 30)}:00`;
+      
       const event = {
         summary: `Agendamento de ${this.servico}`,
         start: {
-          dateTime: `${this.data}T${this.hora}:00`,
+          dateTime: eventStartTime,
           timeZone: 'America/Sao_Paulo',
         },
         end: {
-          dateTime: `${this.data}T${this.addMinutes(this.hora, 30)}:00`,
+          dateTime: eventEndTime,
           timeZone: 'America/Sao_Paulo',
         },
       };
+      console.log('Creating event:', event);
       await this.googleCalendarService.createEvent(event);
       alert('Agendamento criado no Google Calendar com sucesso!');
     } catch (error) {
@@ -98,4 +102,5 @@ export class AgendamentoPage implements OnInit {
     this.agendamentos = this.agendamentoService.getAgendamentos();
   }
 }
+
 
