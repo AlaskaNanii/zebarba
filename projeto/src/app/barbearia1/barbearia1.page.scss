@@ -11,11 +11,18 @@ ion-header {
 }
 
 .content-area {
+  margin-top: 50px;
   h2 {
-    color: #ffcc00;
+    color: #ffffff;
+    border: solid 5px #ffcc00 ;
+    border-radius: 10px;
+    background-color: #ffcc00;
+    padding: 15px;
+    display: flex;
+    text-align: center;
   }
   h3 {
-    color: #ffffff;
+    color: #ffcc00;
   }
   p {
     color: #ffffff;
@@ -88,3 +95,5 @@ flex-direction: column;
 ion-item {
   margin-bottom: 10px;
 }
+
+
